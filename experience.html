@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience | てのこや</title>
+<meta name="description" content="ワークショップや展示を通して、ものづくりの楽しさを届けています。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/subpage.css">
+</head>
+<body>
+
+<div id="header-mount"></div>
+
+<section class="sub-hero">
+  <img src="images/experience/experience-01.jpg" alt="Experience">
+  <div class="sub-hero-overlay">
+    <p class="en">Experience</p>
+    <p class="jp">ものづくりの楽しさを、届ける。</p>
+  </div>
+</section>
+
+<section class="sub-intro fade-in">
+  <div class="container">
+    <p>
+      ワークショップや展示を通して、ものづくりの楽しさを届けています。
+      これまでの開催記録は <a href="archive.html" style="text-decoration:underline;">Archive</a> でご覧いただけます。
+    </p>
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="container">
+
+    <div class="subcategory">
+      <img id="exp-workshop-img" src="images/archive/archive-workshop-naru-01.jpg" alt="Workshop" class="slideshow-img">
+      <div>
+        <h3>Workshop</h3>
+        <p>
+          主にミニチュアを制作するワークショップを開催しています。
+          初めての方でも安心して楽しめる、小さなものづくり体験です。
+        </p>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <img id="exp-exhibit-img" src="images/archive/exhibition-winter-open.jpg" alt="Exhibition" class="slideshow-img">
+      <div>
+        <h3>Exhibition</h3>
+        <p>
+          ミニチュアを中心に、毎回テーマを変えながら展示・個展を
+          開催しています。
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="container" style="text-align:center;">
+    <a href="archive.html" class="btn btn-primary">これまでの活動記録を見る</a>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="data/site-config.js"></script>
+<script src="data/archive.js"></script>
+<script src="js/common.js"></script>
+<script>
+(function() {
+  // ワークショップ写真（archiveItemsのworkshopカテゴリから2枚目以降）
+  const workshopImgs = [
+    "images/archive/archive-workshop-naru-02.jpg",
+    "images/archive/archive-workshop-naru-03.jpg",
+    "images/archive/archive-workshop-naru-04.jpg",
+    "images/archive/archive-workshop-naru-05.jpg",
+    "images/archive/archive-workshop-naru-08.jpg",
+    "images/archive/archive-exhibit-winter-10.jpg",
+    "images/archive/archive-exhibit-winter-11.jpg",
+    "images/archive/archive-exhibit-winter-12.jpg",
+    "images/archive/archive-exhibit-winter-13.jpg",
+  ];
+  // 展示写真
+  const exhibitImgs = [
+    "images/archive/exhibition-winter-open.jpg",
+    "images/archive/archive-exhibit-winter-02.jpg",
+    "images/archive/archive-exhibit-winter-04.jpg",
+    "images/archive/archive-exhibit-winter-05.jpg",
+    "images/archive/archive-exhibit-winter-06.jpg",
+    "images/archive/archive-exhibit-waseda-03.jpg",
+    "images/archive/archive-exhibit-waseda-04.jpg",
+    "images/archive/archive-exhibit-oishii-03.jpg",
+    "images/archive/archive-exhibit-oishii-04.jpg",
+    "images/archive/archive-exhibit-oishii-06.jpg",
+  ];
+
+  function shuffle(arr) { return arr.sort(() => Math.random() - 0.5); }
+
+  function startSlideshow(imgEl, imgs, interval) {
+    let idx = 0;
+    const pool = shuffle([...imgs]);
+    setInterval(() => {
+      idx = (idx + 1) % pool.length;
+      imgEl.style.opacity = "0";
+      setTimeout(() => {
+        imgEl.src = pool[idx];
+        imgEl.style.opacity = "1";
+      }, 400);
+    }, interval);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const wsEl  = document.getElementById("exp-workshop-img");
+    const exEl  = document.getElementById("exp-exhibit-img");
+    if (wsEl) startSlideshow(wsEl, workshopImgs, 3600);
+    if (exEl) startSlideshow(exEl, exhibitImgs,  4000);
+  });
+})();
+</script>
+<script src="js/transition.js"></script>
+</body>
+</html>

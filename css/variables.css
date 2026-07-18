@@ -1,0 +1,55 @@
+/* ============================================
+   variables.css　デザインの基本設定
+   ============================================
+
+   【ここを編集すると変わるもの】
+   ・サイト全体の色合い
+   ・フォント
+
+   色を変えたいときは、ここの値だけ書き換えればOKです。
+   （他のCSSファイルには色を直接書かず、なるべくここの変数を呼び出す形にしています）
+*/
+
+:root {
+  /* ベースカラー：生成り・アイボリー系 */
+  --color-bg: #FAF7F0;
+  --color-bg-soft: #F5F1E8;
+  --color-surface: #FFFFFF;
+
+  /* テキストカラー */
+  --color-text: #3E3A34;
+  --color-text-soft: #6B665C;
+  --color-text-faint: #9C9587;
+
+  /* アクセントカラー（パステル×くすみ） */
+  --color-accent-pink: #E8B4B8;
+  --color-accent-pink-deep: #D4949A;
+  --color-accent-yellow: #E8D2A0;
+  --color-accent-yellow-deep: #D9BC7A;
+  --color-accent-green: #A8B89A;
+  --color-accent-green-deep: #8FA07E;
+
+  --color-border: #E5DFD2;
+  --color-border-soft: #EFE9DC;
+
+  /* フォント */
+  --font-jp: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif;
+  --font-en: 'Cormorant Garamond', serif;
+  /* ロゴ専用：細いスペーシング広めのサンセリフ体（nocikosho参考スタイル） */
+  --font-logo: 'Josefin Sans', sans-serif;
+
+  /* 余白の基本単位 */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+
+  /* 角丸 */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* コンテンツ最大幅 */
+  --content-width: 1120px;
+}

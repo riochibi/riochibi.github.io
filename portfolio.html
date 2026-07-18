@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | てのこや</title>
+<meta name="description" content="てのこやのこれまでの作品をまとめたポートフォリオです。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+<div id="header-mount"></div>
+
+<div class="page-hero">
+  <h1 class="section-title-en" style="color:#7DCCB8">Portfolio</h1>
+  <p class="section-title-jp">作品集</p>
+  <p>これまでに制作した作品をまとめています。</p>
+</div>
+
+<section>
+  <div class="container">
+    <div class="filter-tabs" id="filter-tabs"></div>
+    <div id="gallery-mount"></div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<!-- 作品詳細モーダル -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box" id="modal-box"></div>
+</div>
+
+<script src="data/site-config.js"></script>
+<script src="data/portfolio.js"></script>
+<script src="js/common.js"></script>
+<script src="js/portfolio.js"></script>
+<script src="js/transition.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* ============================================
+   layout.css　ヘッダー・フッターのスタイル
+   ============================================ */
+
+/* ---------- ヘッダー ---------- */
+/* トップページではHero写真の上に透明で乗る。
+   スクロールすると背景が出てくる（js/common.jsで制御）。
+   下層ページでは最初から背景あり。 */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.site-header.is-scrolled,
+.site-header.is-subpage {
+  background-color: rgba(250, 247, 240, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom-color: var(--color-border-soft);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.site-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+/* ロゴ：細いスペーシング広めの書体（nocikosho参考） */
+.site-logo .en {
+  font-family: var(--font-logo);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: #fff;
+  transition: color 0.4s ease;
+}
+
+.site-header.is-scrolled .site-logo .en,
+.site-header.is-subpage .site-logo .en {
+  color: var(--color-text);
+}
+
+.site-logo .jp {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.7);
+  margin-top: 3px;
+  transition: color 0.4s ease;
+}
+
+.site-header.is-scrolled .site-logo .jp,
+.site-header.is-subpage .site-logo .jp {
+  color: var(--color-text-faint);
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.site-nav a {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.9);
+  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+/* ホバーで下線がすーっと伸びる */
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  border-radius: 1px;
+}
+
+.site-nav a:hover::after { transform: scaleX(1); }
+
+.site-header.is-scrolled .site-nav a,
+.site-header.is-subpage .site-nav a {
+  color: var(--color-text-soft);
+}
+
+.site-nav a:hover {
+  color: #fff;
+}
+
+.site-header.is-scrolled .site-nav a:hover,
+.site-header.is-subpage .site-nav a:hover {
+  color: var(--color-text);
+}
+
+/* ハンバーガーメニュー */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  height: 1.5px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: background 0.4s ease;
+}
+
+.site-header.is-scrolled .nav-toggle span,
+.site-header.is-subpage .nav-toggle span {
+  background: var(--color-text);
+}
+
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+
+  .site-nav.is-open {
+    max-height: 480px;
+  }
+
+  .site-nav a,
+  .site-header.is-scrolled .site-nav a,
+  .site-header.is-subpage .site-nav a {
+    color: var(--color-text-soft);
+    padding: 1rem var(--space-sm);
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+}
+
+/* ---------- フッター ---------- */
+.site-footer {
+  background-color: var(--color-bg-soft);
+  padding: var(--space-lg) 0 var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+}
+
+.footer-logo {
+  font-family: var(--font-logo);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+.footer-sns a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--color-text-soft);
+  font-size: 0.85rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: 0.82rem;
+  color: var(--color-text-soft);
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+  margin-top: var(--space-sm);
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal | てのこや</title>
+<meta name="description" content="暮らしやものづくりを、言葉で綴る。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/subpage.css">
+<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+<div id="header-mount"></div>
+
+<section class="sub-hero">
+  <img src="images/journal/journal-hero.jpg" alt="Journal">
+  <div class="sub-hero-overlay">
+    <p class="en">Journal</p>
+    <p class="jp">暮らしやものづくりを、言葉で綴る。</p>
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="container">
+
+    <!-- Note：まだ準備中のため、noteのロゴ画像を使ってcoming soon感を出しています。
+         公開する際は画像とリンク先を差し替えてください。 -->
+    <div class="subcategory">
+      <a href="https://note.com/rio_tenokoya" target="_blank" rel="noopener" style="display:block;">
+        <img src="images/journal/journal-note.jpg" alt="note" style="transition:opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
+      </a>
+      <div>
+        <h3>Note</h3>
+        <p>暮らしやものづくりについて、noteに綴っています。</p>
+        <a href="https://note.com/rio_tenokoya" target="_blank" rel="noopener" class="link-card" style="display:inline-block;margin-top:1em;">note を読む &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Goods：ジャーナリングキット「かくことでととのう」の紹介。
+         画像をクリックすると詳しい説明がモーダルで開きます。
+         写真を追加したいときは images/journal/ にアップロードし、
+         下の goods-modal-images に画像パスを増やしてください。 -->
+    <div class="subcategory">
+      <div class="goods-trigger-wrap" style="cursor:pointer;" onclick="document.getElementById('modal-overlay').classList.add('is-open')">
+        <img src="images/journal/journal-goods-01.jpg" alt="かくことでととのう" class="goods-trigger">
+      </div>
+      <div>
+        <h3>Goods</h3>
+        <p>
+          「かくことでととのう」をテーマに、ジャーナリングキットを制作しています。
+          画像をタップすると詳細をご覧いただけます。
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<!-- Goods詳細モーダル -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-images modal-images-contain" id="goods-modal-images">
+      <img src="images/journal/journal-goods-02.jpg" alt="かくことでととのう - 表紙">
+      <img src="images/journal/journal-goods-01.jpg" alt="かくことでととのう - 中身">
+    </div>
+    <div class="modal-body">
+      <h3 class="modal-title">かくことで、ととのう。</h3>
+      <p class="modal-desc">
+        「かくことでととのう」をテーマに、ジャーナリングキットを制作しています。
+      </p>
+      <p class="modal-desc">
+        お守りみたいに寄り添う、手のひらサイズのジャーナリングノート。
+        1冊で「今日の予定」も「夜のひとこと」も書き込めます。
+      </p>
+      <p class="modal-materials">
+        セット内容：マンスリースケジュール／ウィークリースケジュール／
+        ミニジャーナリングページ／リフレクションページ／フリーメモ
+      </p>
+      <p class="modal-desc" style="margin-top:1em;">
+        まずは3ヶ月、書くことで整う感覚を味わってみませんか。
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="data/site-config.js"></script>
+<script src="js/common.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const trigger = document.querySelector(".goods-trigger");
+    const overlay = document.getElementById("modal-overlay");
+    const closeBtn = document.getElementById("modal-close");
+    if (trigger) {
+      trigger.addEventListener("click", () => overlay.classList.add("is-open"));
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => overlay.classList.remove("is-open"));
+    }
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) overlay.classList.remove("is-open");
+    });
+  });
+</script>
+<script src="js/transition.js"></script>
+</body>
+</html>

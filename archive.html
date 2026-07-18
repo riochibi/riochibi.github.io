@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive | てのこや</title>
+<meta name="description" content="てのこやのワークショップ・展示・イベントの活動記録です。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+<div id="header-mount"></div>
+
+<div class="page-hero">
+  <h1 class="section-title-en" style="color:#F0B8B8">Archive</h1>
+  <p class="section-title-jp">活動記録</p>
+  <p>これまでのワークショップ・展示・イベントの記録です。</p>
+</div>
+
+<section>
+  <div class="container">
+    <div class="filter-tabs" id="filter-tabs"></div>
+    <div id="gallery-mount"></div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<!-- 活動記録詳細モーダル -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-images-wrap"></div>
+    <div class="modal-body">
+      <h3 class="modal-title"></h3>
+      <p class="modal-meta"></p>
+      <p class="modal-desc modal-summary"></p>
+      <div class="modal-impression-wrap">
+        <p class="modal-impression-label">感想</p>
+        <p class="modal-desc modal-impression"></p>
+      </div>
+      <div class="modal-sub-grid"></div>
+    </div>
+  </div>
+</div>
+
+<script src="data/site-config.js"></script>
+<script src="data/archive.js"></script>
+<script src="js/common.js"></script>
+<script src="js/archive.js"></script>
+<script src="js/transition.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create | てのこや</title>
+<meta name="description" content="ミニチュア・イラスト・アクセサリーなど、手から生まれる小さな作品たち。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/subpage.css">
+</head>
+<body>
+
+<div id="header-mount"></div>
+
+<section class="sub-hero">
+  <img src="images/create/create-01.jpg" alt="Create">
+  <div class="sub-hero-overlay">
+    <p class="en">Create</p>
+    <p class="jp">手から生まれる、小さな作品たち。</p>
+  </div>
+</section>
+
+<section class="sub-intro fade-in">
+  <div class="container">
+    <p>
+      ミニチュアやイラストをはじめ、暮らしにそっと寄り添う作品を制作しています。
+      それぞれの制作についての詳しい紹介は下記をご覧ください。
+      作品そのものは <a href="portfolio.html" style="text-decoration:underline;">Portfolio</a> にまとめています。
+    </p>
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="container">
+
+    <div class="subcategory">
+      <img id="create-mini-img" src="images/portfolio/miniature-wall-okazu-zukan-large.jpg" alt="Miniature" class="slideshow-img">
+      <div>
+        <h3>Miniature</h3>
+        <p>
+          ミニチュア制作歴10年。樹脂粘土を使って、本物みたいな指先サイズの
+          ミニチュアフードを制作しています。
+        </p>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <img id="create-illus-img" src="images/portfolio/illustration-monochro-nabesan.jpg" alt="Illustration" class="slideshow-img">
+      <div>
+        <h3>Illustration</h3>
+        <p>
+          ゆるくて少し愛おしい、日常に寄り添うイラストを描いています。
+        </p>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <img id="create-acce-img" src="images/portfolio/accessory-donut-pierce.jpg" alt="Accessory" class="slideshow-img">
+      <div>
+        <h3>Accessory</h3>
+        <p>
+          ミニチュアやイラストを取り入れたアクセサリーや、レジン・ビーズを
+          使った、遊び心のある作品を制作しています。
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title-en">Shop</h2>
+    <p class="section-title-jp">オンラインショップ</p>
+    <div class="link-cards">
+      <a href="https://line.me/S/shop/sticker/author/2064477/new?lang=ja&utm_source=gnsh_staut" target="_blank" rel="noopener" class="link-card">LINEスタンプ</a>
+      <a href="https://minne.com/@koyaruru" target="_blank" rel="noopener" class="link-card">minne</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="data/site-config.js"></script>
+<script src="data/portfolio.js"></script>
+<script src="js/common.js"></script>
+<script>
+(function() {
+  function pickImgs(category) {
+    return portfolioItems
+      .filter(i => i.category === category)
+      .map(i => i.images[0])
+      .sort(() => Math.random() - 0.5);
+  }
+
+  function startSlideshow(imgEl, imgs, interval) {
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % imgs.length;
+      imgEl.style.opacity = "0";
+      setTimeout(() => {
+        imgEl.src = imgs[idx];
+        imgEl.style.opacity = "1";
+      }, 400);
+    }, interval);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const miniEl  = document.getElementById("create-mini-img");
+    const illusEl = document.getElementById("create-illus-img");
+    const acceEl  = document.getElementById("create-acce-img");
+    if (miniEl)  startSlideshow(miniEl,  pickImgs("miniature"),     3500);
+    if (illusEl) startSlideshow(illusEl, pickImgs("illustration"),  4200);
+    if (acceEl)  startSlideshow(acceEl,  pickImgs("accessory"),     3800);
+  });
+})();
+</script>
+<script src="js/transition.js"></script>
+</body>
+</html>
