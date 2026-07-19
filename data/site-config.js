@@ -17,8 +17,8 @@ const siteConfig = {
   tagline: "手から生まれる、小さなしあわせ。",
 
   instagram: {
-    url: "https://www.instagram.com/tenokoya_rio",
-    label: "@tenokoya_rio"
+    url: "https://www.instagram.com/chiisaimonoclub_riochibi",
+    label: "@chiisaimonoclub_riochibi"
   },
 
   // お問い合わせフォームのURL（Googleフォームなどに差し替えてください）
