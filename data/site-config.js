@@ -30,7 +30,7 @@ const siteConfig = {
     { label: "Experience", href: "experience.html" },
     { label: "Journal", href: "journal.html" },
     { label: "Gift", href: "gift.html" },
-    { label: "Portfolio", href: "portfolio.htSml" },
+    { label: "Portfolio", href: "portfolio.html" },
     { label: "Archive", href: "archive.html" },
     { label: "Contact", href: "index.html#contact" }
   ],
